@@ -1,0 +1,71 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+    var index = 0;
+}
+
+@*
+    <div class="text-center">
+        <h1>@Model.CurrentDate.ToShortDateString();</h1>
+
+        <ul>
+            @foreach (var s in Model.List)
+            {
+                index++;
+                <li>
+                    <strong>@index</strong>
+                    @s
+                </li>
+            }
+        </ul>
+
+
+    </div>*@
+
+
+@*
+    @foreach (var p in Model.Products)
+    {
+        <div>
+            <h2>@p.Name</h2>
+            <p>Codice: @p.Code</p>
+            <p>ID: @p.Id</p>
+        </div>
+        <hr />
+    }
+*@
+<table class="table">
+    <tr>
+        <td>Id</td>
+        <td>Codice</td>
+        <td>Nome</td>
+    </tr>
+
+    @*per commentare*@
+
+    @foreach (var p in Model.Products)
+    {
+<tr>
+    <td>@p.Id</td>
+    <td>@p.Code</td>
+    <td>@p.Name</td>
+    <td>
+        <a asp-page="/products/Details" 
+           asp-route-id="@p.Id">Details</a>
+    </td>
+    <td>
+        <a asp-page="/products/Edit" 
+           asp-route-id="@p.Id">Edit</a>
+    </td>
+</tr>
+    }
+</table>
+
+@section Scripts
+{
+    <script type="text/javascript">
+
+    </script>
+
+}
